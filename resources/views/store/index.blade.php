@@ -13,16 +13,20 @@
 @endsection
 	
 	@section('content')
-	<div class="mobile-filters">
+	{{-- <div class="mobile-filters">
 		@include('store.partials.filters-mobile')
-	</div>
+	</div> --}}
 	{{-- @include('store.partials.filterbar') --}}
 	<div id="main" class="main-container container-fluid container-fluid-1500 pad-top-0 padding-bottom-3x mb-1">
 		<div class="row">
-			<div class="col-sm-3 col-md-3 col-lg-3 pad0 hide-768">
+			@include('store.partials.filters-horizontal')
+		</div>
+		<div class="row">
+			{{-- Filters Sidebar --}}
+			{{-- <div class="col-sm-3 col-md-3 col-lg-3 pad0 hide-768">
 				@include('store.partials.filter-sidebar')
-			</div>
-			<div id="MainContent" class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+			</div> --}}
+			<div id="MainContent" class="col-xs-12">
 				@if(!isset($_GET['checkout-on']))
 					@if(isset($_GET['page']) && !isset($search) && count($_GET) == 1)
 					@else
@@ -130,10 +134,11 @@
 			</div>
 		</div>
 	</div>
-	<div class="instagram-feed">
+	{{-- Instagram --}}
+	{{-- <div class="instagram-feed">
 		<h4>Seguinos en Instagram</h4>
 		<div id="Instafeed" class="instagram-images"></div>
-	</div>
+	</div> --}}
 	<div id="Error"></div>
 @endsection
 

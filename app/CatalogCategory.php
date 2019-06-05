@@ -15,6 +15,11 @@ class CatalogCategory extends Model
         return $this->hasMany('App\CatalogArticle', 'category_id');
     }
 
+    public function activeArticles()
+    {
+        return $this->hasMany('App\CatalogArticle', 'category_id')->active();
+    }
+    
     public function scopeSearchCategory($query, $name)
     {
     	return $query->where('name','=', $name);

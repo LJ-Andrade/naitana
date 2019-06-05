@@ -15,13 +15,13 @@ class StoreCatalogComposer
 		$tags = CatalogTag::orderBy('name', 'desc')->get();
 		$sizes = CatalogSize::orderBy('name', 'asc')->get();
 		$categories = CatalogCategory::orderBy('name', 'asc')->get();
-		$brands = CatalogBrand::orderBy('name', 'asc')->get();
+		// $brands = CatalogBrand::orderBy('name', 'asc')->get();
 		$colors = CatalogColor::orderBy('name', 'asc')->get();
 		
 		$view->with('tags', $tags)
 			 ->with('sizes', $sizes)
 			 ->with('categories', $categories)
-			 ->with('colors', $colors)
-			 ->with('brands', $brands);
+			 ->with('colors', $colors);
+			//  ->with('brands', $brands);
 	}
 }

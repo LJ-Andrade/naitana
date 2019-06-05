@@ -102,18 +102,29 @@ window.openCheckoutDesktop = function()
 }
 
 window.openFilters = function () {
-    const filters = $('#SearchFilters');
-    const trigger = $('#SearchFiltersTrigger');
-    if(filters.hasClass('active'))
+    const selector = $('.FilterSelector')
+    console.log(selector.hasClass('inactive'));
+    if(selector.hasClass('inactive'))
     {
-        filters.removeClass('active');
-        trigger.show();
+        selector.removeClass('inactive');
     }
     else
     {
-        filters.addClass('active');
-        trigger.hide();
+        selector.addClass('inactive');
     }
+    // $('.FilterSelector').
+    //const filters = $('#SearchFilters');
+    //const trigger = $('#SearchFiltersTrigger');
+    //if(filters.hasClass('active'))
+    //{
+    //    filters.removeClass('active');
+    //    trigger.show();
+    //}
+    //else
+    //{
+    //    filters.addClass('active');
+    //    trigger.hide();
+    //}
 
 }
 
