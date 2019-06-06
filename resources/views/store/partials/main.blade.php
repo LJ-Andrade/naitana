@@ -59,8 +59,8 @@
 				<div class="col-md-6 item">
 					<h4>Redes</h4>
 					<ul>
-						<li><a href="https://www.facebook.com/somosklekas/" target="_blank"><i class="fab fa-facebook-f social-icons"></i></li>
-						<li><a href="https://www.instagram.com/somosklekas/" target="_blank"><i class="fab fa-instagram social-icons"></i></a></li>
+						<li><a href="" target="_blank"><i class="fab fa-facebook-f social-icons"></i></li>
+						<li><a href="" target="_blank"><i class="fab fa-instagram social-icons"></i></a></li>
 						{{-- <li><i class="fab fa-twitter-square"></i></li> --}}
 					</ul>
 				</div>
@@ -79,7 +79,7 @@
 		{{-- Whats App Cta--}}
 		<div class="floating-bottom-cta">
 			<div class="inner">
-				<a href="https://wa.me/54912121212" target="_blank"><i class="fab fa-whatsapp"></i></a>
+				<a href="https://wa.me/54955555555" target="_blank"><i class="fab fa-whatsapp"></i></a>
 			</div>
 		</div>
 	
@@ -96,7 +96,7 @@
 		<script src="{{ asset('plugins/jquery/jquery-3.3.1.min.js') }}"></script>
 		{{-- Instafeed Docs --}}
 		{{-- https://github.com/stevenschobert/instafeed.js --}}
-		<script src="{{ asset('plugins/instafeed/instafeed.js') }}"></script> 
+		{{-- <script src="{{ asset('plugins/instafeed/instafeed.js') }}"></script>  --}}
 		
 		<script src="{{ asset('js/scripts.js') }}"></script>
 		@include('store.partials.scripts')
@@ -112,20 +112,20 @@
 			// Other options:
 			// sortBy : none (default) - most-recent - least-recent - most-liked - least-liked - most-commented - least-commented - random
 			// resolution: thumbnail (default) - low_resolution - standard_resolution
-			var feed = new Instafeed({
-				get: 'user',
-				userId: '1138178064',
-				tagName: 'tagged',
-				target: 'Instafeed',
-				clientId: '1cdec271dcfc4b288b9079464a27d3da',
-				accessToken: '1138178064.ba4c844.c6190ae40e6940b8a9abb541b2ad1e2e',
-				limit: '8',
-				resolution: 'low_resolution',
-				error: function(err){
-					// $('#error').text(err);
-				}
-			});
-			feed.run();
+			// var feed = new Instafeed({
+			// 	get: 'user',
+			// 	userId: '1138178064',
+			// 	tagName: 'tagged',
+			// 	target: 'Instafeed',
+			// 	clientId: '1cdec271dcfc4b288b9079464a27d3da',
+			// 	accessToken: '1138178064.ba4c844.c6190ae40e6940b8a9abb541b2ad1e2e',
+			// 	limit: '8',
+			// 	resolution: 'low_resolution',
+			// 	error: function(err){
+			// 		// $('#error').text(err);
+			// 	}
+			// });
+			// feed.run();
 		</script>
 	</body>
 </html>

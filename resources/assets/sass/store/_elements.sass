@@ -974,11 +974,12 @@ ul.pagination
 
 //////////////////////////////////////
 //                                  //
-//             ALERTS               //
+//             WIDGETS              //
 //                                  //
 //////////////////////////////////////
+
 .widgets-footer
-	background-color: $main-color
+	@include gradient-left()
 	text-align: center
 	padding: 25px 10px
 	.item
@@ -1108,3 +1109,9 @@ ul.pagination
 	background: $second-color
 	.footer-copyright
 		padding: 0
+
+a.anchor
+    display: block
+    position: relative
+    top: -80px
+    visibility: hidden

@@ -8,19 +8,17 @@
 	{{-- Carousel Banner --}}
 	<div class="owl-carousel">
 		<img src="{{ asset('images/web/home-banner.jpg')}}" alt="Klekas Home Banner">
-		<img src="{{ asset('images/web/home-banner2.jpg')}}" alt="Klekas Home Banner">
+		<img src="{{ asset('images/web/home-banner.jpg')}}" alt="Klekas Home Banner">
 	</div>
 @endsection
-	
 	@section('content')
-	{{-- <div class="mobile-filters">
-		@include('store.partials.filters-mobile')
-	</div> --}}
-	{{-- @include('store.partials.filterbar') --}}
-	<div id="main" class="main-container container-fluid container-fluid-1500 pad-top-0 padding-bottom-3x mb-1">
-		<div class="row">
+	<a href="" class="anchor" style="" id="TopIndexAnchor"></a>
+	<div class="row filters-wrapper">
+		<div class="container">
 			@include('store.partials.filters-horizontal')
 		</div>
+	</div>
+	<div id="main" class="main-container container pad-top-0 padding-bottom-3x mb-1">
 		<div class="row">
 			{{-- Filters Sidebar --}}
 			{{-- <div class="col-sm-3 col-md-3 col-lg-3 pad0 hide-768">
@@ -162,6 +160,17 @@
 				dots:true
 			});
 		});
+
+		@if(app('request')->input())
+			$(function() {
+				// $(document).scrollTop( $("#TopIndexAnchor").offset().top);  
+				var jump = $('#TopIndexAnchor');
+				var new_position = $(jump).offset();
+				$('html, body').stop().animate({ scrollTop: new_position.top }, 500);
+			});
+		@endif
+
+		// $('TopIndexAnchor').gotoAnchor();
 
 	</script>
 @endsection

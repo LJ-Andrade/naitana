@@ -1,3 +1,7 @@
+.filters-wrapper
+	border-bottom: 1px solid #ccc
+	margin-bottom: 20px
+
 
 // ------------- Horizontal Filters --------------- //
 .filters
@@ -10,52 +14,64 @@
 		@include flex-center
 		min-height: 45px
 		flex: 1
-		padding: 10px
+		padding: 10px 20px 0 20px
 		&:first-child
 			padding-left: 0
 		&:last-child 
 			padding-right: 0
 		select,input
 			border: 0
+			border-bottom: 1px solid #ccc
+			border-radius: 0
 			font-family: $font1
 			width: 100%
 			min-height: 40px
 			padding-left: 10px
+	.input-with-icon
+		position: relative
+		input
+			padding-right: 30px
+			padding-left: 40px
+		.search-btn
+			@include flex-center
+			position: absolute
+			left: 5px
+			top: 0
+			height: 100%
+			width: 20px
+		.filter-trigger
+			display: none
+
 	.search-btn
 		background: transparent
 		border: 0
 		&:hover
 			cursor: pointer
 
-@media(min-width: 768px)
-	.filter-trigger
-		display: none
-
 @media(max-width: 768px)
+	.filters-wrapper
+		border-bottom: 0
+		margin-bottom: 10px
+		padding: 0 20px
 	.filters
 		display: block
 		.filter-item
 			padding: 0
 			width: 100%
-		.filter-trigger
-			display: block
+			select,input
+				border: 0
 		.inactive
 			display: none
-		.input-icon-right
-			position: relative
-			input
-				padding-right: 30px
-				padding-left: 40px
-			.icon,.filter-trigger
-				@include flex-center
+		.input-with-icon
+			.filter-trigger
+				padding: 10px 0
+				font-size: 1.2rem
+				display: block
 				position: absolute
 				top: 0
+				right: 0
 				height: 100%
 				width: 20px
-			.icon
-				left: 5px
-			.filter-trigger
-				right: 0
 				&:hover
 					cursor: pointer
 

@@ -7,8 +7,8 @@
 @section('header-image')
 	{{-- Carousel Banner --}}
 	<div class="owl-carousel">
-		<img src="{{ asset('images/web/home-banner.jpg')}}" alt="Klekas Home Banner">
-		<img src="{{ asset('images/web/home-banner2.jpg')}}" alt="Klekas Home Banner">
+		<img src="{{ asset('images/web/home-banner.jpg')}}" alt="Home Banner">
+		<img src="{{ asset('images/web/home-banner.jpg')}}" alt="Home Banner">
 	</div>
 @endsection
 
@@ -17,11 +17,11 @@
 <div class="container">
     <div class="row section-about-us">
         <div class="col-md-6 ">
-            <img src="{{ asset('images/web/about-us.jpg') }}" alt="About Us">
+            {{-- <img src="{{ asset('images/web/about-us.jpg') }}" alt="About Us"> --}}
         </div>
-        <div class="col-md-6">
+        <div class="col-md-12">
             <h2>Quienes Somos</h2>
-
+{{-- 
             <hr>
             <br>
             <p>Hola! somos <b>Guada y Cami</b>, amigas y diseñadoras textiles recibidas de la UBA. 
@@ -34,7 +34,7 @@
             También nos encargamos de hacer producto terminado y colaboraciones para otras marcas. <br><br>
             Nuestro mail de contacto es: <b>somosklekas@gmail.com</b> <br><br>
 
-            Ojalá les guste la nueva temporada; la realizamos con amor y dedicación!
+            Ojalá les guste la nueva temporada; la realizamos con amor y dedicación! --}}
 
 
         </div>

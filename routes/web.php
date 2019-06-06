@@ -85,20 +85,17 @@ Route::post('mail_sender', 'WebController@mail_sender');
 |--------------------------------------------------------------------------
 */
 
-// Route::get('/', 'Store\StoreController@index')->middleware('active-customer');
+Route::get('/', 'Store\StoreController@index')->middleware('active-customer');
 
-Route::get('/', function(){ 
-    return redirect("https://namastetejidos.mitiendanube.com/");
-});
 
 Route::get('tienda/quienes-somos', function(){ 
     return view('store.section-about-us');
 });
 
 
-Route::get('test1', function(){ 
-    return view('store.checkout-success');
-});
+// Route::get('test1', function(){ 
+//     return view('store.checkout-success');
+// });
 
 Route::get('tienda', ['as' => 'store', 'uses' => 'Store\StoreController@index'])->middleware('active-customer');
 Route::get('politica-de-exclusividad', function(){ return view('store.reseller-policy'); });
@@ -197,6 +194,9 @@ Route::group(['prefix' => 'vadmin', 'middleware' => 'active-user'], function(){
 
     Route::post('updateAvatar', 'UserController@updateAvatar');
     Route::post('updateCustomerAvatar', 'CustomerController@updateCustomerAvatar');
+
+    // Orders
+    Route::post('removeFromOrder', ['as' => 'vadmin.removeFromOrder', 'uses' => 'Store\OrdersController@destroy']);
     
     // Route::post('actualizar-avatar', ['as' => 'vadmin.updateCustomerAvatar', 'uses' => 'CustomerController@updateCustomerAvatar']);
     // Exports
