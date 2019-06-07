@@ -187,10 +187,12 @@ class UserController extends Controller
             'role.group' => 'Debe pertenecer a un grupo'
         ]);
         
-        $filename = $user->username.'.jpg';
         $path = public_path('images/users/');
-        
+
+        $user->fill($request->all());
+
         if($request->file('avatar') != null){
+            $filename = $user->username.'.jpg';
             $avatar   = $request->file('avatar');
             // if (!file_exists($path)) {
             //     $oldmask = umask(0);
@@ -198,10 +200,9 @@ class UserController extends Controller
             //     umask($oldmask);
             // }
             Image::make($avatar)->encode('jpg', 80)->fit(300, 300)->save($path.$filename);
+            $user->avatar = $filename;
         }
         
-        $user->fill($request->all());
-        $user->avatar = $filename;
         // $user->password = bcrypt($request->password);
         $user->save();
         return redirect('vadmin/users')->with('Message', 'Usuario '. $user->name .'editado correctamente');
