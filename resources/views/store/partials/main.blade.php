@@ -53,14 +53,15 @@
 			<div class="row">
 				<div class="col-md-6 item">
 					<h4>Contacto</h4>
-					<p>Guadalupe: (+54)9 11-3826-4084 <br>
-					Camila: (+54)9 11-6276-1443 </p>
+					<p>
+						naitanaba@gmail.com
+					</p>
 				</div>
 				<div class="col-md-6 item">
 					<h4>Redes</h4>
 					<ul>
-						<li><a href="" target="_blank"><i class="fab fa-facebook-f social-icons"></i></li>
-						<li><a href="" target="_blank"><i class="fab fa-instagram social-icons"></i></a></li>
+						<li><a href="https://www.facebook.com/NAITANA-663024874158051/" target="_blank"><i class="fab fa-facebook-f social-icons"></i></li>
+						<li><a href="https://www.instagram.com/naitana.oficial/?hl=es" target="_blank"><i class="fab fa-instagram social-icons"></i></a></li>
 						{{-- <li><i class="fab fa-twitter-square"></i></li> --}}
 					</ul>
 				</div>
@@ -77,11 +78,11 @@
 		</footer>
 
 		{{-- Whats App Cta--}}
-		<div class="floating-bottom-cta">
+		{{-- <div class="floating-bottom-cta">
 			<div class="inner">
 				<a href="https://wa.me/54955555555" target="_blank"><i class="fab fa-whatsapp"></i></a>
 			</div>
-		</div>
+		</div> --}}
 	
 		{{-- Back To Top Button --}}
 		<a class="scroll-to-top-btn" href="#"> <i class="icon-arrow-up"></i> </a>
