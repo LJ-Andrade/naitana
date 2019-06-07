@@ -85,19 +85,23 @@ Route::post('mail_sender', 'WebController@mail_sender');
 |--------------------------------------------------------------------------
 */
 
-Route::get('/', 'Store\StoreController@index')->middleware('active-customer');
+// Test Routes
+Route::get('/', function(){ 
+    return view('store.proximamente');
+});
+
+Route::get('tienda-test', ['as' => 'store', 'uses' => 'Store\StoreController@index'])->middleware('active-customer');
+
+// Production Routes
+// Route::get('/', 'Store\StoreController@index')->middleware('active-customer');
+// Route::get('tienda', ['as' => 'store', 'uses' => 'Store\StoreController@index'])->middleware('active-customer');
+
 
 
 Route::get('tienda/quienes-somos', function(){ 
     return view('store.section-about-us');
 });
 
-
-// Route::get('test1', function(){ 
-//     return view('store.checkout-success');
-// });
-
-Route::get('tienda', ['as' => 'store', 'uses' => 'Store\StoreController@index'])->middleware('active-customer');
 Route::get('politica-de-exclusividad', function(){ return view('store.reseller-policy'); });
 Route::get('condiciones-de-compra', function(){ return view('store.buy-conditions'); });
 Route::get('como-comprar', function(){ return view('store.how-to-buy'); });
@@ -131,7 +135,6 @@ Route::post('removeFromCart', ['as' => 'store.removeFromCart', 'uses' => 'Store\
     Route::post('mp-connect', ['as' => 'store.getCreatePreference', 'uses' => 'Store\StoreController@mpConnect']);
 
 });
-
 
 Route::group(['prefix'=> 'tienda', 'middleware' => 'active-customer'], function() {    
     Route::get('articulo/{id}', 'Store\StoreController@show');
