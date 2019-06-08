@@ -132,13 +132,13 @@
 						{!! Form::close() !!}
 					@else
 						<div class="item"><div class="title">Colores: 
-						@foreach($colors as $id => $color)
-							<b>{{ $color['name'] }}</b> @if(!$loop->last) | @endif
+						@foreach($colors as $id => $name)
+							<b>{{ $name }}</b> @if(!$loop->last) | @endif
 						@endforeach
 						</div> <br></div>
 						<div class="item"><div class="title">Talles: 
-							@foreach($sizes as $id => $size)
-								<b>{{ $size['name'] }}</b> @if(!$loop->last) | @endif
+							@foreach($sizes as $id => $name)
+								<b>{{ $name }}</b> @if(!$loop->last) | @endif
 							@endforeach
 							</div> <br></div>
 						<a href="{{ route('customer.login') }}" class="btn input-btn"> Comprar </a>
