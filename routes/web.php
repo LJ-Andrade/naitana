@@ -90,11 +90,8 @@ Route::get('/', function(){
     return view('store.proximamente');
 });
 
-Route::get('tienda-test', ['as' => 'store', 'uses' => 'Store\StoreController@index'])->middleware('active-customer');
-
-// Production Routes
 // Route::get('/', 'Store\StoreController@index')->middleware('active-customer');
-// Route::get('tienda', ['as' => 'store', 'uses' => 'Store\StoreController@index'])->middleware('active-customer');
+Route::get('tienda', ['as' => 'store', 'uses' => 'Store\StoreController@index'])->middleware('active-customer');
 
 
 
