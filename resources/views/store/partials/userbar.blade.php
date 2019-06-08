@@ -6,7 +6,7 @@
         </div>
         <div class="tools">
                 <div class="gen-menu">
-                <a class="btn btn-main-borderless" href="{{ url('tienda/quienes-somos') }}">QUIENES SOMOS</a>
+                    {{-- <a class="btn btn-main-borderless" href="{{ url('tienda/quienes-somos') }}">QUIENES SOMOS</a> --}}
                 </div>
             @if(Auth::guard('customer')->check())
                 {{-- @include('store.partials.cart-resumen-desktop') --}}

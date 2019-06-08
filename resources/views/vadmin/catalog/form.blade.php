@@ -19,7 +19,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text">$</span>
                 </div>
-                {!! Form::number('reseller_price', null, ['class' => 'form-control', 'min' => '0', 'step' => 'any', 'required' => '']) !!}
+                {!! Form::number('reseller_price', 0, ['class' => 'form-control', 'min' => '0', 'step' => 'any', 'required' => '']) !!}
             </div>
         </div>
         {{-- Reseller Discount --}}
@@ -29,7 +29,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text">%</span>
                 </div>
-                {!! Form::number('reseller_discount', null, ['class' => 'form-control',
+                {!! Form::number('reseller_discount', 0, ['class' => 'form-control',
                 'min' => '0', 'max' => '100', 'data-parsley-type' => 'integer', 'required' => '']) !!}
             </div>
         </div>
@@ -40,7 +40,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text">$</span>
                 </div>
-                {!! Form::number('price', null, ['class' => 'form-control', 'min' => '0', 'step' => 'any', 'required' => '']) !!}
+                {!! Form::number('price', 0, ['class' => 'form-control', 'min' => '0', 'step' => 'any', 'required' => '']) !!}
             </div>
         </div>
         {{-- Reseller Discount --}}
@@ -50,7 +50,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text">%</span>
                 </div>
-                {!! Form::number('discount', null, ['class' => 'form-control',
+                {!! Form::number('discount', 0, ['class' => 'form-control',
                 'min' => '0', 'max' => '100', 'data-parsley-type' => 'integer', 'required' => '']) !!}
             </div>
         </div>

@@ -2,10 +2,8 @@
 //      Store Skin
 //--------------------------------------------------
 
-
 body
 	background-color: #fff
-
 
 h1,h2,h3,h4,h5,h6
 	font-family: $font2
@@ -13,7 +11,7 @@ h1,h2,h3,h4,h5,h6
 // Cart sidebar
 .cart-sidebar
 	box-shadow: 7px 2px 13px 5px rgba(0, 0, 0, 0.10)
-	background-color: $third-color
+	background-color: #fff
 	color: #000
 	.item,a
 		color: #000
@@ -84,22 +82,22 @@ h1,h2,h3,h4,h5,h6
 	.account
 		border: 0
 	.cart
-	border: 0
-	color: #fff
-	&:hover
-		background-color: transparent
 		border: 0
-		border-radius: 0 
-		color: $second-color
-	a
 		color: #fff
+		@include transition(0.2s)
+		.subtotal,.count
+			border: 0
+			color: #fff
+		a
+			color: #fff
+		&:hover
+			background-color: #fff
+			color: #000
+			.subtotal,.count
+				color: #000
+			.cart-icon-top
+				color: $main-color
 
-.toolbar .cart > .subtotal
-	border: 0
-	color: #fff
-
-.toolbar .cart > .count
-	color: #fff
 // Nav
 
 .gen-menu

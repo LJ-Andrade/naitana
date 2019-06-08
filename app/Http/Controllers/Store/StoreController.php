@@ -291,7 +291,7 @@ class StoreController extends Controller
     public function checkoutItems(Request $request)
     {
         $activeCart = Cart::where('customer_id', auth()->guard('customer')->user()->id)->where('status', 'active')->get();
-        dd('checkoutItems');
+        
         $activeCart = $this->activeCart();
         if($activeCart == null || count($activeCart) == 0)
         {
