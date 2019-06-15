@@ -86,11 +86,11 @@ Route::post('mail_sender', 'WebController@mail_sender');
 */
 
 // Test Routes
-Route::get('/', function(){ 
-    return view('store.proximamente');
-});
+// Route::get('/', function(){ 
+//     return view('store.proximamente');
+// });
 
-// Route::get('/', 'Store\StoreController@index')->middleware('active-customer');
+Route::get('/', 'Store\StoreController@index')->middleware('active-customer');
 Route::get('tienda', ['as' => 'store', 'uses' => 'Store\StoreController@index'])->middleware('active-customer');
 
 
