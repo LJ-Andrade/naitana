@@ -384,7 +384,7 @@ $('#Multi_Images').fileuploader({
                    '<div class="fileuploader-item-inner">' +
                        '<div class="thumbnail-holder">${image}</div>' +
                        '<div class="actions-holder">' +
-                              '<a class="fileuploader-action fileuploader-action-remove" title="${captions.remove}"><i class="remove"></i></a>' +
+                              '<a class="fileuploader-action fileuploader-action-remove" title="${captions.remove}">X</a>' +
                            '<span class="fileuploader-action-popup"></span>' +
                        '</div>' +
                           '<div class="progress-holder">${progressBar}</div>' +

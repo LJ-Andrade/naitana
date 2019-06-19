@@ -1915,7 +1915,7 @@
             feedback2: function(options) { return options.length + ' ' + (options.length > 1 ? ' files were' : ' file was') + ' chosen'; },
             drop: 'Drop the files here to Upload',
             paste: '<div class="fileuploader-pending-loader"><div class="left-half" style="animation-duration: ${ms}s"></div><div class="spinner" style="animation-duration: ${ms}s"></div><div class="right-half" style="animation-duration: ${ms}s"></div></div> Pasting a file, click here to cancel.',
-            removeConfirmation: 'Are you sure you want to remove this file?',
+            removeConfirmation: 'Desea eliminar esta imágen?',
             errors: {
                 filesLimit: 'Only ${limit} files are allowed to be uploaded.',
                 filesType: 'Only ${extensions} files are allowed to be uploaded.',

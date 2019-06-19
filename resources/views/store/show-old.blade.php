@@ -5,39 +5,41 @@
 @endsection
 
 @section('content')
-{{-- <div id="Error"></div> --}}
-<div class="row article-show">
-    <div class="article-column col-xs-12 col-sm-5 col-md-6 col-lg-6 article-images">
-        <div class="title-mobile">
-                <div class="before-title">
-                <span class="text-medium">Categoría:&nbsp;</span>
-                <a class="navi-link" href="#">{{ $article->category->name }}</a>
-            </div>
-            <h2 class="title">{{ $article->name }}</h2>
-        </div>
-        <div class="owl-carousel">
-            @if(count($article->images) > 0)
-            @foreach($article->images as $image)
-                <img src="{{ asset('webimages/catalogo/'. $image->name) }}" class="CheckCatalogImg" alt="{{ $article->name }}">
-            @endforeach
-            @else
-                <img src="{{ asset($article->featuredImageName()) }}" alt="{{ $article->name }}">
-            @endif
-        </div>
-       
+<div id="Error"></div>
+<div class="container-fluid container-fluid-1500 article-show">
+    <div class="row top-article-bar">
+        {{-- Top Info --}}
     </div>
-    <div class="article-column col-xs-12 col-sm-7 col-md-6 col-lg-6 article-details ">
-        
-        
-           <div class="article-details">
-            <div class="details-container">
-                <div class="title-desktop">
-                    <div class="before-title">
-                        <span class="text-medium">Categoría:&nbsp;</span>
-                        <a class="navi-link" href="#">{{ $article->category->name }}</a>
+    <div class="row">
+        {{-- Mobile --}}
+        <div class="article-images-mobile">
+            <div class="owl-carousel owl-theme">
+                @foreach($article->images as $image)
+                    <div class="item">
+                        <img src="{{ asset('webimages/catalogo/'. $image->name) }}" class="CheckCatalogImg" alt="{{ $article->name }}">
                     </div>
-                    <h2 class="title">{{ $article->name }}</h2>
-                </div>
+                @endforeach
+            </div>
+        </div>
+        {{-- Desktop --}}
+        <div class="article-images">
+			<ul>
+				@if(count($article->images) > 0)
+				@foreach($article->images as $image)
+					<li><img src="{{ asset('webimages/catalogo/'. $image->name) }}" class="CheckCatalogImg" alt="{{ $article->name }}"></li>
+				@endforeach
+				@else
+					<li><img src="{{ asset($article->featuredImageName()) }}" alt="{{ $article->name }}"></li>
+				@endif
+			</ul>
+        </div>
+        <div class="article-details">
+            <div class="details-container">
+				<div class="before-title">
+					<span class="text-medium">Categoría:&nbsp;</span>
+					<a class="navi-link" href="#">{{ $article->category->name }}</a>
+				</div>
+				<h2 class="title">{{ $article->name }}</h2>
                 {{-- <div class="code"> #{{ $article->code }}</div> --}}
                 <div class="price-container">
 					{{-- PRICES --}}
@@ -145,11 +147,13 @@
 				<a href="{{ url('tienda') }}" class="btn btn-light"><i class="fas fa-long-arrow-alt-left"></i> Volver a la tienda</a>
             </div>
         </div>
-
     </div>
 </div>
 
 @endsection
+
+
+
 @section('scripts')
 	@include('store.components.bladejs')
     <script type="text/javascript" src="{{ asset('plugins/owl/owl.carousel.min.js') }}" ></script>

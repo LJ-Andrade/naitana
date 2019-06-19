@@ -2,9 +2,14 @@
     padding: 20px 0
     margin-top: 25px
     position: relative
+    .article-column
+        .title-mobile
+            display: none
     .article-images
         max-width: 100%
-        width: 43%
+        width: 100%
+        padding-left: 50px
+        overflow: hidden
         ul li
             margin-bottom: 20px
             img
@@ -19,10 +24,6 @@
         padding-top: 0
         position: relative
         .details-container
-            position: fixed
-            left: 0
-            top: 100px
-            margin-left: 46%
             .before-title
                 margin-bottom: 20px
             .title
@@ -62,32 +63,33 @@
                 padding: 10px 16px
                 font-size: 1rem
             
-.article-show-top
-
-@media (max-width: 1095px)   
-    .article-show .article-details .details-container
-        margin-left: 520px
-
-@media (max-width: 1100px) and (min-width: 991px)
-    .article-show .article-details .details-container
-        margin-left: 46%
-        padding-right: 25px
-
-
-@media (max-width: 991px)
+@media (min-width: 1400px)
     .article-show
         .article-images
-            display: none
-        .article-images-mobile
-            display: block
-        .article-details
-            text-align: center
-            @include flex-center
-            width: 100%
-            .details-container
-                position: relative
-                top: auto
-                left: auto
-                margin-left: 0
-                .submit-article-actions
-                    @include flex-center
+            padding-left: 200px
+
+@media (max-width: 768px)
+    .article-show
+        .article-images
+            padding-left: 0
+        .article-column
+            .title-desktop
+                display: none
+            .title-mobile
+                text-align: center
+                display: block
+
+
+// @media (max-width: 991px)
+//     .article-show
+//         .article-details
+//             text-align: center
+//             @include flex-center
+//             width: 100%
+//             .details-container
+//                 position: relative
+//                 top: auto
+//                 left: auto
+//                 margin-left: 0
+//                 .submit-article-actions
+//                     @include flex-center
