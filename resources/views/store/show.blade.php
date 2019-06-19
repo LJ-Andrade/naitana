@@ -15,7 +15,7 @@
             </div>
             <h2 class="title">{{ $article->name }}</h2>
         </div>
-        <div class="owl-carousel">
+        <div class="images-carousel owl-carousel">
             @if(count($article->images) > 0)
             @foreach($article->images as $image)
                 <img src="{{ asset('webimages/catalogo/'. $image->name) }}" class="CheckCatalogImg" alt="{{ $article->name }}">
@@ -25,6 +25,29 @@
             @endif
         </div>
        
+
+        {{-- <div class="images-carousel">
+                <div class="owl-carousel owl-theme">
+                    <div class="item">
+                    @if(count($article->images) > 0)
+                        @foreach($article->images as $image)
+                            <img src="{{ asset('webimages/catalogo/'. $image->name) }}" class="CheckCatalogImg" alt="{{ $article->name }}">
+                        @endforeach
+                    @else
+                        <img src="{{ asset($article->featuredImageName()) }}" alt="{{ $article->name }}">
+                    @endif
+                    </div>
+                </div>
+                <div class="owl-theme">
+                    <div class="owl-controls">
+                        <div class="custom-nav owl-nav"></div>
+                    </div>
+                </div>
+            </div> --}}
+
+
+
+
     </div>
     <div class="article-column col-xs-12 col-sm-7 col-md-6 col-lg-6 article-details ">
         
@@ -162,14 +185,16 @@
 				loop: true,
 				margin: 0,
 				singleItem: true,
-				nav: false,
-				dots: false,
                 responsive:{
                     0:{
                         items:1
                     }
                 },
-				dots:true
+                nav: true,
+                navText: [
+                    '<i class="fa fa-angle-left" aria-hidden="true"></i>',
+                    '<i class="fa fa-angle-right" aria-hidden="true"></i>'
+                ],
 			});
 		});
 
