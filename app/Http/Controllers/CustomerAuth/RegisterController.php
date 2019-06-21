@@ -62,7 +62,7 @@ class RegisterController extends Controller
      * @return \Illuminate\Contracts\Validation\Validator
      */
 
-    protected function validator(array $data)
+    protected function resellerValidator(array $data)
     {
         return Validator::make($data, [
             'name' => 'required|string|max:255',
@@ -70,7 +70,7 @@ class RegisterController extends Controller
             'username' => 'required|string|max:20|unique:customers',
             'email' => 'required|string|email|max:255|unique:customers',
             'phone' => 'required|string|min:4',
-            'cuit' => 'required|int|digits:11',
+            'dni' => 'required|int|digits:8',
             'password' => 'required|string|min:6|confirmed'
         ], [
             'username.required' => 'Debe ingresar un nombre de usuario.',
@@ -84,33 +84,68 @@ class RegisterController extends Controller
             'password.confirmed' => 'Las contraseñas no coinciden.',
             'phone.required' => 'Debe ingresar un teléfono.',
             'phone.min' => 'El teléfono no parece correcto.',
-            'cuit.digits' => 'El CUIT debe tener 11 números, no incluya guiones.'
+            'dni.digits' => 'El DNI debe tener 8 números, no incluya guiones.'
+        ]);
+    }
+
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => 'required|string|max:255',
+            'surname' => 'required|string|max:255',
+            'username' => 'required|string|max:20|unique:customers',
+            'email' => 'required|string|email|max:255|unique:customers',
+            'password' => 'required|string|min:6|confirmed'
+        ], [
+            'username.required' => 'Debe ingresar un nombre de usuario.',
+            'username.max' => 'El nombre de usuario puede contener 20 caracteres máximo.',
+            'username.unique' => 'El nombre de usuario ya está en uso. Debe elegir otro.',
+            'surname.required' => 'Debe ingresar su apellido.',
+            'email.required' => 'Debe ingresar un email.',
+            'email.email' => 'La dirección de email parece inválida.',
+            'email.unique' => 'Ya hay un usuario registrado con el mismo email.',
+            'password.required' => 'Debe ingresar una contraseña.',
+            'password.confirmed' => 'Las contraseñas no coinciden.'
         ]);
     }
 
     protected function create(array $data)
     {
-        $status = '1'; // Active
+        // dd($data);
         $group = '2'; // Min
-        // Reseller
-        if ($data['group'] == '3')
-            $group = '3'; // Reseller 
-
-        return Customer::create([
-            'name'          => $data['name'],
-            'surname'       => $data['surname'],
-            'username'      => $data['username'],
-            'email'         => $data['email'],
-            'phone'         => $data['phone'],
-            'geoprov_id'    => $data['geoprov_id'],
-            'geoloc_id'     => $data['geoloc_id'],
-            'cuit'          => $data['cuit'],
-            'business_type' => $data['business_type'],
-            'cp'            => $data['cp'],
-            'password'      => bcrypt($data['password']),
-            'group'         => $group,
-            'status'        => $status
-        ]);
+        $status = '1'; // Active
+        
+        if(isset($data['isReseller']) && $data['isReseller'] == true)
+        {
+            $group = '3';
+            return Customer::create([
+                'name'          => $data['name'],
+                'surname'       => $data['surname'],
+                'username'      => $data['username'],
+                'email'         => $data['email'],
+                'phone'         => $data['phone'],
+                'geoprov_id'    => $data['geoprov_id'],
+                'geoloc_id'     => $data['geoloc_id'],
+                'dni'           => $data['dni'],
+                'business_type' => $data['business_type'],
+                'cp'            => $data['cp'],
+                'password'      => bcrypt($data['password']),
+                'group'         => $group,
+                'status'        => $status
+            ]);
+        } 
+        else
+        {
+            return Customer::create([
+                'name'          => $data['name'],
+                'surname'       => $data['surname'],
+                'username'      => $data['username'],
+                'email'         => $data['email'],
+                'password'      => bcrypt($data['password']),
+                'group'         => $group,
+                'status'        => $status
+            ]);
+        }      
     }
 
     protected function guard()
@@ -135,9 +170,15 @@ class RegisterController extends Controller
 
     public function register(Request $request)
     {
-        if ($request->group != '2' && $request->group != '3')
-            return back()->withErrors('No se ha seleccionado un tipo de usuario');   
-        $this->validator($request->all())->validate();
+        // dd($request->all());
+    
+        // if ($request->group != '2' && $request->group != '3')
+        //     return back()->withErrors('No se ha seleccionado un tipo de usuario');   
+
+        if($request->isReseller)
+            $this->resellerValidator($request->all())->validate();
+        else
+            $this->validator($request->all())->validate();
 
         event(new Registered($user = $this->create($request->all())));
 

@@ -100,6 +100,7 @@
 						<th>Cód.</th>
 						<th>Título</th>
 						<th>Variantes (Color / Talle - Stock)</th>
+						<th>Precio Min/May</th>
 						<th>Estado</th>
 					@endslot
 					@slot('tableContent')
@@ -142,6 +143,10 @@
 											</div>
 										</div>
 									@endforeach
+								</td>
+								<td>
+									${{ $item->price }} @if($item->discount != 0) <i>(${{calcArticlePrice($item->price, $item->discount) }}) @endif </i> / 
+									${{ $item->reseller_price }} @if($item->reseller_discount != 0) <i>(${{calcArticlePrice($item->reseller_price, $item->reseller_discount) }})</i> @endif
 								</td>
 								{{-- STATUS --}}
 								<td class="w-50 pad0 centered">

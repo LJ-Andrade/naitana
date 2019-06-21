@@ -67,52 +67,57 @@
                     @endif
                 </div> 
             </div>
-            <div class="row">
-                <div class="col-sm-6 form-group">
-                    <label>Tipo de Negocio</label>
-                    {!! Form::select('business_type', ['Local' => 'Local', 'ShowRoom' => 'ShowRoom', 'Revendedora' => 'Revendedora'], null,
-                    ['class' => 'form-control', 'placeholder' => 'Seleccione una opción', 'required' => '']) !!}
-                </div>
-                <div class="col-md-6 form-group{{ $errors->has('cp') ? ' has-error' : '' }}">
-                    <label>Código Postal</label>
-                    <input class="form-control" type="text" value="{{ old('cp') }}" name="cp">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Provincia</label>
-                        {!! Form::select('geoprov_id', $geoprovs, null,
-                        ['class' => 'GeoProvSelect form-control', 'placeholder' => 'Seleccione una opción']) !!}
+            {{-- Reseller Fields --}}
+            <div id="ResellerFields" class="Hidden">
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        <label>Tipo de Negocio</label>
+                        {!! Form::select('business_type', ['Local' => 'Local', 'ShowRoom' => 'ShowRoom', 'Revendedora' => 'Revendedora'], null,
+                        ['class' => 'EnableIfReseller form-control', 'disabled' => '', 'placeholder' => 'Seleccione una opción', 'required' => '']) !!}
+                    </div>
+                    <div class="col-md-6 form-group{{ $errors->has('cp') ? ' has-error' : '' }}">
+                        <label>Código Postal</label>
+                        <input class="EnableIfReseller form-control" type="text" value="{{ old('cp') }}" name="cp" disabled>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Localidad</label>
-                        <select id='GeoLocsSelect' name="geoloc_id" 
-                            data-actualloc="" data-actuallocid="" class="form-control GeoLocsSelect" required>
-                        </select>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Provincia</label>
+                            {!! Form::select('geoprov_id', $geoprovs, null,
+                            ['class' => 'EnableIfReseller GeoProvSelect form-control', 'disabled' => '', 'placeholder' => 'Seleccione una opción']) !!}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Localidad</label>
+                            <select id='GeoLocsSelect' name="geoloc_id"  
+                                data-actualloc="" data-actuallocid="" class="EnableIfReseller form-control GeoLocsSelect" disabled required>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    {{-- Phone --}}
+                    <div class="col-sm-6 form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
+                        <label>Teléfono</label>
+                        <input  type="text" name="phone" class="EnableIfReseller form-control round"
+                        placeholder="Ingrese su número telefónico" value="{{ old('phone') }}" disabled required>
+                        @if ($errors->has('name'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('phone') }}</strong>
+                            </span>
+                        @endif
+                    </div> 
+                    {{-- CUIT --}}
+                    <div class="col-sm-6 form-group{{ $errors->has('dni') ? ' has-error' : '' }}">
+                        <label>DNI</label>
+                        <input class="EnableIfReseller form-control" type="text" name="dni" placeholder="Ingrese su número de DNI" 
+                        value="{{ old('dni') }}" disabled required/>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                {{-- Phone --}}
-                <div class="col-sm-6 form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
-                    <label>Teléfono</label>
-                    <input  type="text" name="phone" class="form-control round" 
-                    placeholder="Ingrese su número telefónico" value="{{ old('phone') }}" required>
-                    @if ($errors->has('name'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('phone') }}</strong>
-                        </span>
-                    @endif
-                </div> 
-                {{-- CUIT --}}
-                <div class="col-sm-6 form-group{{ $errors->has('cuit') ? ' has-error' : '' }}">
-                    <label>CUIT</label>
-                    <input class="form-control" type="text" name="cuit" placeholder="Ingrese su número de CUIT" value="{{ old('cuit') }}" required />
-                </div>
-            </div>
+            {{-- End Reseller Fields --}}
             <div class="row">
                 {{-- Password --}}
                 <div class="col-sm-6 form-group{{ $errors->has('password') ? ' has-error' : '' }} position-relative has-icon-left">
@@ -135,9 +140,11 @@
                     @endif
                 </div>
             </div>
+            <div class="box-info">
+                <input id="ChooseResellerCheckbox" type="checkbox" name="isReseller" value="true"> Quiero ser mayorísta
+            </div>
 
-
-            <input type="hidden" value="3" name="group">
+            {{-- <input type="hidden" value="3" name="group"> --}}
             {{-- Submit --}}
             <button type="submit" class="btn btn-primary btn-block"><i class="icon-unlock"></i> Registrarse</button>
             <div class="bottom-text">Ya tiene cuenta? | <a href="{{ route('customer.login') }}">Ingresar</a></div>
@@ -156,5 +163,16 @@
                 getGeoLocs(prov_id);
             });
         });
+
+        $('#ChooseResellerCheckbox').on('click', function() {
+            if($(this).prop("checked") == true) {
+                $('#ResellerFields').removeClass('Hidden');
+                $('.EnableIfReseller').removeAttr('disabled');
+            } else {
+                $('#ResellerFields').addClass('Hidden');  
+                $('.EnableIfReseller').attr('disabled', 'disabled');
+            };
+        });
+
     </script>
 @endsection
