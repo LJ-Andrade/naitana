@@ -115,7 +115,7 @@
 										@foreach($colors as $id => $color)
 											<label class="ColorsSelector btn button-radio-hidden btn-round">
 												<input onclick="checkVariantStock()" name="color_id" value="{{ $id }}" 
-												type="radio" autocomplete="off"> {{ $name }}
+												type="radio" autocomplete="off"> {{ $color }}
 											</label>
 										@endforeach
 									</div>
