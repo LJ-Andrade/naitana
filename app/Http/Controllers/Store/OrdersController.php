@@ -142,14 +142,14 @@ class OrdersController extends Controller
         if($order['rawdata']->customer_id == null)
         {
             $anonCustomer = $this->getAnonCustomerData($order['rawdata']);
-            $filename = 'Klekas-Pedido-'.$id.'-'.$anonCustomer['email'];
+            $filename = 'Naitana-Pedido-'.$id.'-'.$anonCustomer['email'];
         }
         else
         {
-            $filename = 'Klekas-Pedido-'.$id.'-Cliente-'.$order['rawdata']->customer->name.' '.$order['rawdata']->customer->surname;
+            $filename = 'Naitana-Pedido-'.$id.'-Cliente-'.$order['rawdata']->customer->name.' '.$order['rawdata']->customer->surname;
         }
 
-        Excel::create('Klekas-Pedido-'.$id, function($excel) use($order){
+        Excel::create('Naitana-Pedido-'.$id, function($excel) use($order){
             $excel->sheet('Listado', function($sheet) use($order) { 
                 $sheet->getDefaultStyle()->getFont()->setName('Arial');
                 $sheet->getDefaultStyle()->getFont()->setSize(12);
@@ -166,11 +166,11 @@ class OrdersController extends Controller
         if($order['rawdata']->customer_id == null)
         {
             $anonCustomer = $this->getAnonCustomerData($order['rawdata']);
-            $filename = 'Klekas-Pedido-'.$id.'-'.$anonCustomer['email'];
+            $filename = 'Naitana-Pedido-'.$id.'-'.$anonCustomer['email'];
         }
         else
         {
-            $filename = 'Klekas-Pedido-'.$id.'-Cliente-'.$order['rawdata']->customer->name.' '.$order['rawdata']->customer->surname;
+            $filename = 'Naitana-Pedido-'.$id.'-Cliente-'.$order['rawdata']->customer->name.' '.$order['rawdata']->customer->surname;
         }
 
         Excel::create($filename, function($excel) use($order){

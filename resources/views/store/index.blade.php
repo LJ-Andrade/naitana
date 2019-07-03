@@ -7,11 +7,11 @@
 @section('header-image')
 	{{-- Carousel Banner --}}
 	<div class="owl-carousel">
-		<img src="{{ asset('images/web/home-banner.jpg')}}" alt="Klekas Home Banner">
-		<img src="{{ asset('images/web/home-banner.jpg')}}" alt="Klekas Home Banner">
+		<img src="{{ asset('images/web/home-banner.jpg')}}" alt="Naitana Home Banner">
+		<img src="{{ asset('images/web/home-banner.jpg')}}" alt="Naitana Home Banner">
 	</div>
 @endsection
-	@section('content')
+@section('content')
 	<a href="" class="anchor" style="" id="TopIndexAnchor"></a>
 	<div class="row filters-wrapper">
 		<div class="container">

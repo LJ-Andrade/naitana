@@ -5,9 +5,9 @@
             {{-- <a href="{{ url('como-comprar') }}"><i class="far fa-question-circle"></i> Como comprar</a>         --}}
         </div>
         <div class="tools">
-                <div class="gen-menu">
-                    {{-- <a class="btn btn-main-borderless" href="{{ url('tienda/quienes-somos') }}">QUIENES SOMOS</a> --}}
-                </div>
+            <div class="gen-menu">
+                <a class="btn btn-main-borderless" href="{{ url('tienda/como-comprar') }}">¿Cómo comprar?</a>
+            </div>
             @if(Auth::guard('customer')->check())
                 {{-- @include('store.partials.cart-resumen-desktop') --}}
                 {{-- Cart Sidebar Trigger --}}

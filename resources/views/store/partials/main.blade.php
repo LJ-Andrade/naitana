@@ -54,7 +54,8 @@
 				<div class="col-md-6 item">
 					<h4>Contacto</h4>
 					<p>
-						naitanaba@gmail.com
+						naitanaba@gmail.com <br>
+						+54 9 11 6235-3554
 					</p>
 				</div>
 				<div class="col-md-6 item">
@@ -107,7 +108,7 @@
 				checkoutSidebar('show');
 			@endif
 
-			// Instagram Feed (User ID klekas: 1138178064)
+			// Instagram Feed (User ID --- : 1138178064)
 			// Plugin URL 
 
 			// Other options:

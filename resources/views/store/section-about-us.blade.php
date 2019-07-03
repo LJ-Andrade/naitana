@@ -24,17 +24,10 @@
 {{-- 
             <hr>
             <br>
-            <p>Hola! somos <b>Guada y Cami</b>, amigas y diseñadoras textiles recibidas de la UBA. 
-                En el año 2012 arrancamos con este proyecto que hoy es somos Klekas. 
-                Nos dedicamos a diseñar y fabricar tejidos confeccionados con materiales muy nobles y suaves. 
-                Cuando creamos pensamos en un producto que sea funcional, 
-                que quede canchero en distintos ámbitos y que se pueda usar en infinidad de colores. 
-                Nos inspiramos en viajes, fotos, pinturas, mujeres, la calle y el día a día. <br><br>
-
-            También nos encargamos de hacer producto terminado y colaboraciones para otras marcas. <br><br>
-            Nuestro mail de contacto es: <b>somosklekas@gmail.com</b> <br><br>
-
-            Ojalá les guste la nueva temporada; la realizamos con amor y dedicación! --}}
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita, harum cupiditate ratione, 
+				accusamus debitis hic aspernatur commodi corporis quas, enim vitae tenetur consectetur asperiores 
+				aliquid repellat adipisci itaque illum aut?</b> <br><br>
+ --}}
 
 
         </div>

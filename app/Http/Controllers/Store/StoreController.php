@@ -421,7 +421,7 @@ class StoreController extends Controller
                 // Notify Bussiness
                 Mail::to(APP_EMAIL_1)->send(new SendMail('Compra Recibida', 'Checkout', $cart));
                 // Notify Customer
-                Mail::to($customerEmail)->send(new SendMail('Klekas - Compra recibida !', 'CustomerCheckout', ''));
+                Mail::to($customerEmail)->send(new SendMail('Naitana - Compra recibida !', 'CustomerCheckout', ''));
             } catch (\Exception $e) {
                 //
             }
@@ -456,7 +456,7 @@ class StoreController extends Controller
                     'id' => 0,
                     'title' => env('APP_BUSINESS_NAME'),
                     'description' => '',
-                    'picture_url' => 'http://localhost/klekas/public/images/web/mp-logo.png',
+                    'picture_url' => 'http://localhost/naitana/public/images/web/mp-logo.png',
                     'quantity' => 1,
                     'currency_id' => "ARS",
                     'unit_price' => $order['total']
@@ -648,7 +648,7 @@ class StoreController extends Controller
                 [
                     'id' => 'ORD#'.$cart->id,
                     'category_id' => '-',
-                    'title' => 'Compra en Klekas',
+                    'title' => 'Compra en Naitana',
                     'description' => '-',
                     'picture_url' => '-',
                     'quantity' => 1,

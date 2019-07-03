@@ -195,8 +195,6 @@
 
 .info-container
 	background-color: #ffffff
-	border: 1px solid #ccc
-	border-top: 4px solid #ccc
 	padding: 20px 100px
 	margin-top: 50px
 	.centered-text
@@ -228,6 +226,9 @@
 	.lone-item
 		@include flex-center()
 
+@media (max-width: 600px)
+	.info-container
+		padding: 20px 50px
 
 .content-container
 	padding: 50px 10px
@@ -235,7 +236,26 @@
 
 .check-icon-big
 	color: $main-color
-			
+
+.image-and-text-items
+	div
+		margin-bottom: 20px
+
+
+.icon-img-and-text
+	position: relative
+	padding-left: 90px
+	img
+		position: absolute
+		left: 0
+		top: 0
+		max-width: 100%
+		margin-right: 20px
+	p
+		font-family: $font1
+		font-size: 1rem
+		line-height: 1.2rem
+
 //////////////////////////////////////
 //                                  //
 //             ELEMENTS             //

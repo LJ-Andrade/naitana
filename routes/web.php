@@ -99,6 +99,13 @@ Route::get('tienda/quienes-somos', function(){
     return view('store.section-about-us');
 });
 
+Route::get('tienda/como-comprar', function(){ 
+    return view('store.section-how-to-buy');
+});
+
+
+
+
 Route::get('politica-de-exclusividad', function(){ return view('store.reseller-policy'); });
 Route::get('condiciones-de-compra', function(){ return view('store.buy-conditions'); });
 Route::get('como-comprar', function(){ return view('store.how-to-buy'); });
