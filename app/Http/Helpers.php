@@ -28,7 +28,7 @@ function calcArticlePrice($price, $discount)
     if($discount > 0)
     {
         $percent = $price * $discount / 100;
-        $result =  $price - $discount;
+        $result =  $price - $percent;
         $result = convertAndRoundDecimal($result, 2);
     }
     

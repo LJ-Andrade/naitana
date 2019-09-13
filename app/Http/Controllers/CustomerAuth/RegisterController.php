@@ -157,7 +157,7 @@ class RegisterController extends Controller
     {
         $geoprovs = GeoProv::pluck('name','id');
         return view('store.register')
-            ->with('geoprovs',$geoprovs);
+            ->with('geoprovs', $geoprovs);
     }
 
     public function showRegistrationFormReseller()
