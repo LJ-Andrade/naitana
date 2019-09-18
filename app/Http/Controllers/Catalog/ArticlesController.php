@@ -299,14 +299,10 @@ class ArticlesController extends Controller
 
     public function store(Request $request)
     {
-
-        if($request->variants == null)
-            return redirect()->back()->withInput()->with('error', 'No se han ingresado variantes'); 
-
         if ($request->discount == null)
             $request->discount = '0';
 
-        if ($request->slug)
+        if ($request->slug) 
             $checkSlug = $this->checkSlug($request->slug);
 
         $article = new CatalogArticle($request->all());
@@ -314,20 +310,19 @@ class ArticlesController extends Controller
         $article->user_id = \Auth::guard('user')->user()->id;
 
         $images = $request->file('images');
-        $thumbnail = $request->file('thumbnail');
+        $featuredImage = $request->featuredImage;
+
         $imgPath = public_path("webimages/catalogo/");
         $thumbPath = public_path("webimages/catalogo/thumbs/");
 
-        // Creates directory if no exist
         if (!file_exists($imgPath)) {
-            $oldmask = umask(0);
-            mkdir($imgPath, 0777);
-            umask($oldmask);
+            echo "Falta crear el directorio webimages/catalogo";
+            die();
         }
+
         if (!file_exists($thumbPath)) {
-            $oldmask = umask(0);
-            mkdir($thumbPath, 0777);
-            umask($oldmask);
+            echo "Falta crear el directorio webimages/catalogo/thumbs";
+            die();
         }
 
         $extension = '.jpg';
@@ -341,7 +336,6 @@ class ArticlesController extends Controller
         {
             try 
             {
-                // dd($request->variants);
                 foreach ($request->variants as $index => $data)
                 {
                     $item = new CatalogVariant();
@@ -360,27 +354,29 @@ class ArticlesController extends Controller
             }
         
 
-        //  Sync Relations
+            //  Sync Relations
             $article->size()->sync($request->size);
             $article->tags()->sync($request->tags);
             $article->brands()->sync($request->brands);
-        //  Save Images
+            //  Save Images
             if ($images) {
                 try {
                     $number = '0';
-                    foreach ($images as $phisic_image) {
+                    foreach ($images as $physic_image) {
+                        // dd($featuredImage. ' ' .$physic_image->getClientOriginalName());
                         $filename = $article->id . '-' . $number;
-                        $img = \Image::make($phisic_image);
+                        $img = \Image::make($physic_image);
                         $img->encode('jpg', 80)->fit($imgWidth, $imgHeight)->save($imgPath . $filename . $extension);
-
+                        
                         $image = new CatalogImage();
-                        if ($number == '0') {
+
+                        if($featuredImage == $physic_image->getClientOriginalName())
                             $image->featured = 1;
-                        }
+                        
                         $image->name = $filename . $extension;
                         $image->article()->associate($article);
 
-                        $thumb = \Image::make($phisic_image);
+                        $thumb = \Image::make($physic_image);
                         $thumb->encode('jpg', 80)->fit($thumbWidth, $thumbHeight)->save($thumbPath . $filename . $extension);
                         //$article->thumb = $article->id.'-thumb'.$extension;
                         $image->thumb = $filename . $extension;
@@ -394,9 +390,8 @@ class ArticlesController extends Controller
             }
         }
 
-        return redirect()->route('catalogo.index')->with('message', 'Artículo agregado al catálogo');
+        return redirect()->route('catalogo.index')->with('message', 'Artículo agregado al catálogo.');
     }
-
     /*
     |--------------------------------------------------------------------------
     | UPDATE
