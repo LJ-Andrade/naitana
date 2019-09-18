@@ -3,15 +3,12 @@
 
 @section('styles')
 	{!! Html::style('plugins/texteditor/trumbowyg.min.css') !!}
-	{!! Html::style('plugins/fileuploader/css/jquery.fileuploader.css') !!}
-	{!! Html::style('plugins/fileuploader/css/jquery.fileuploader-theme-dragdrop.css') !!}
-	{!! Html::style('plugins/fileuploader/css/jquery.fileuploader-theme-dropin.css') !!}
-	{!! Html::style('plugins/fileuploader/css/jquery.fileuploader-theme-onebutton.css') !!}
-	{!! Html::style('plugins/fileuploader/css/jquery.fileuploader-theme-thumbnails.css') !!}
-
-	
-
+	{!! Html::style('plugins/jqueryFileUploader/fileuploader.css') !!}
+	{!! Html::style('plugins/jqueryFileUploader/jquery.fileuploader.css') !!}
+	{!! Html::style('plugins/jqueryFileUploader/jquery.fileuploader-thumbnailtheme.css') !!}
+	{!! Html::style('plugins/jqueryfiler/themes/jquery.filer-dragdropbox-theme.css') !!}
 	{!! Html::style('plugins/chosen/chosen.min.css') !!}
+	{!! Html::style('plugins/colorpicker/spectrum.css') !!}
 @endsection
 
 @section('header')

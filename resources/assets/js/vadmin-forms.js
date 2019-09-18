@@ -305,36 +305,6 @@ $('#Single_Image').fileuploader({
     }
 });
 
-//enable fileuploader plugin
-// $('#ImagesUploader').fileuploader({
-//     extensions: ['jpg', 'jpeg', 'png', 'gif'],
-//     addMore: true,
-//     enableApi: true,
-//     thumbnails: {
-//         onImageLoaded: function(item) {
-//             item.html.find('.fileuploader-action-remove').before('<a class="fileuploader-action fileuploader-action-sort fas fa-sort title="Sort"><i></i></a>');
-//             if (!item.html.find('.fileuploader-action-edit').length)
-//                 item.html.find('.fileuploader-action-remove').before('<a class="fileuploader-action fileuploader-action-popup fileuploader-action-edit fas fa-edit" title="Edit"><i></i></a>');
-//         }
-//     },
-//     editor: {
-//         cropper: {
-//             ratio: '1:1',
-//             minWidth: 100,
-//             minHeight: 100,
-//             showGrid: true
-//         }
-//     },
-//     sorter: {
-//         selectorExclude: null,
-//         placeholder: null,
-//         scrollContainer: window,
-//         onSort: function(list, listEl, parentEl, newInputEl, inputEl) {
-//             // onSort callback
-//         }
-//     }
-// });
-
 
 $('#Multi_Images').fileuploader({
     extensions: ['jpg', 'jpeg', 'png', 'gif', 'bmp'],
@@ -367,7 +337,7 @@ $('#Multi_Images').fileuploader({
         placeholder: null,
         scrollContainer: window,
         onSort: function(list, listEl, parentEl, newInputEl, inputEl) {
-            // onSort callback
+            $('#FeaturedImageName').val(list[0]['name']);
         }
     },
     thumbnails: {
@@ -384,21 +354,14 @@ $('#Multi_Images').fileuploader({
                    '<div class="fileuploader-item-inner">' +
                        '<div class="thumbnail-holder">${image}</div>' +
                        '<div class="actions-holder">' +
-                              '<a class="fileuploader-action fileuploader-action-remove" title="${captions.remove}">X</a>' +
-                           '<span class="fileuploader-action-popup"></span>' +
+                            '<a class="fileuploader-custom-action fileuploader-action-sort" title="Ordenar"><i class="fas fa-arrows-alt"></i></a> ' +
+                            '<a class="fileuploader-custom-action fileuploader-action-remove" title="Eliminar">X</a> ' +
+                            '<span class="fileuploader-action-popup"></span>' +
                        '</div>' +
                           '<div class="progress-holder">${progressBar}</div>' +
                    '</div>' +
                '</li>',
-        item2: '<li class="fileuploader-item">' +
-                   '<div class="fileuploader-item-inner">' +
-                       '<div class="thumbnail-holder">${image}</div>' +
-                       '<div class="actions-holder">' +
-                           '<a class="fileuploader-action fileuploader-action-remove" title="${captions.remove}"><i class="remove"></i></a>' +
-                           '<span class="fileuploader-action-popup"></span>' +
-                       '</div>' +
-                   '</div>' +
-               '</li>',
+
         startImageRenderer: true,
         canvasImage: false,
         _selectors: {

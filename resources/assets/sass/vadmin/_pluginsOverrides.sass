@@ -18,22 +18,22 @@
 		padding: 20px 0 0
 
 .custom-list
-    thead
-        th
-            padding: 0.75rem 1rem
-    tbody
-        th, td
-            padding: 5px 1rem
-        th
-            font-size: 1rem
-        td
-            font-size: 0.9rem
+	thead
+		th
+			padding: 0.75rem 1rem
+	tbody
+		th, td
+			padding: 5px 1rem
+		th
+			font-size: 1rem
+		td
+			font-size: 0.9rem
 
 .table-striped tbody tr:nth-of-type(odd)
-    background-color: rgb(253, 253, 253)
+	background-color: rgb(253, 253, 253)
 
 .breadcrumb
-    padding-bottom: 0
+	padding-bottom: 0
 
 .content-wrapper
 	padding-top: 0 !important    
@@ -133,16 +133,16 @@ $phvFsize: 0.9rem
 //////////////////////////////////////
 
 .input-group
-    position: relative
-    display: -webkit-box
-    display: -ms-flexbox
-    display: flex
-    -ms-flex-wrap: wrap
-    flex-wrap: wrap
-    -webkit-box-align: stretch
-    -ms-flex-align: stretch
-    align-items: stretch
-    width: 100%
+	position: relative
+	display: -webkit-box
+	display: -ms-flexbox
+	display: flex
+	-ms-flex-wrap: wrap
+	flex-wrap: wrap
+	-webkit-box-align: stretch
+	-ms-flex-align: stretch
+	align-items: stretch
+	width: 100%
 .input-group > .custom-file, .input-group > .custom-select, .input-group > .form-control
 	position: relative
 	-webkit-box-flex: 1
@@ -155,8 +155,8 @@ $phvFsize: 0.9rem
 	display: flex
 	
 .input-group > .form-control:not(:last-child)
-    border-top-right-radius: 0
-    border-bottom-right-radius: 0
+	border-top-right-radius: 0
+	border-bottom-right-radius: 0
 
 .input-group-append .btn, .input-group-prepend .btn
 	position: relative
@@ -234,7 +234,7 @@ $phvFsize: 0.9rem
 	margin-top: 15px
 	
 .alert-success
-    background-color: $green
+	background-color: $green
 
 .swal2-confirm
 	margin: 3px
@@ -289,11 +289,11 @@ $phvFsize: 0.9rem
 	background-size: cover
 
 .main-menu.menu-dark .navigation > li.active > a
-    background-color: $dark-detail1
+	background-color: $dark-detail1
 
 // Hover
 .main-menu.menu-dark .navigation > li.hover > a, .main-menu.menu-dark .navigation > li:hover > a, .main-menu.menu-dark .navigation > li.active > a
-    background-color: $dark-detail3
+	background-color: $dark-detail3
 	
 // Active Section
 .main-menu.menu-dark .navigation > li.open > a
@@ -314,3 +314,28 @@ body.vertical-layout.vertical-menu.menu-expanded .main-menu .navigation > li > a
 
 .content-wrapper
 	padding-bottom: 60px !important
+
+
+.fileuploader-custom-action
+	position: absolute
+	width: 30px
+	text-align: center
+	z-index: 9999
+	background: $dark-main
+	color: #fff !important
+	border: 0
+	font-size: 0.8rem
+	&:hover
+		background-color: $dark-detail2
+
+
+.fileuploader-action-sort
+	left: 0
+	font-weight: 600
+.fileuploader-action-remove
+	right: 0
+	font-weight: 600
+	
+.fileuploader-items .fileuploader-item .fileuploader-action, .fileuploader-items .fileuploader-item .progress-bar2 span
+	-webkit-transform: translateY(0)
+	transform: translateY(0)

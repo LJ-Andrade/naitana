@@ -5,5 +5,6 @@
         {{--  Images Input  --}}
         {!! Form::file('images[]', array('multiple'=>true, 'id' => 'Multi_Images')) !!}
         <div class="ErrorImage"></div>
+        <input id="FeaturedImageName" type="hidden" name="featuredImage" value="none">
     </div>
 </div>
